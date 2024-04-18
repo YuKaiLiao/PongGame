@@ -19,6 +19,11 @@ game_is_on = True
 while game_is_on:
     GameScreen.update()
     GameBall.move()
+    if GameBall.xcor() >= 380 or GameBall.xcor() <= -380:
+        game_is_on = False
+
+    if GameBall.ycor() >= 300 or GameBall.ycor() <= -300:
+        GameBall.collision("up")
     sleep(0.1)
 
 GameScreen.exitonclick()

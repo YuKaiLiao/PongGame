@@ -9,11 +9,18 @@ class Ball(Turtle):
         self.goto(0, 0)
         self.penup()
         self.speed(0)
+        self.x_movement = 10
+        self.y_movement = 10
 
     def move(self):
-        current_position = self.position
-        new_position_x = self.xcor() + 10
-        new_position_y = self.ycor() + 10
+        new_position_x = self.xcor() + self.x_movement
+        new_position_y = self.ycor() + self.y_movement
         new_position = (new_position_x, new_position_y)
 
         self.goto(new_position)
+
+    def collision(self, wall_dir):
+        if wall_dir == "up" or wall_dir == "down":
+            self.y_movement *= -1
+        elif wall_dir == "right" or wall_dir == "left":
+            self.x_movement *= -1
