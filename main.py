@@ -23,7 +23,14 @@ while game_is_on:
         game_is_on = False
 
     if GameBall.ycor() >= 300 or GameBall.ycor() <= -300:
-        GameBall.collision("up")
+        GameBall.collision("y")
+
+    if GameBall.xcor() >= 340 and GameBall.distance(RightPaddle) < 50:
+        GameBall.collision("x")
+
+    if GameBall.xcor() <= -340 and GameBall.distance(LeftPaddle) < 50:
+        GameBall.collision("x")
+
     sleep(0.1)
 
 GameScreen.exitonclick()

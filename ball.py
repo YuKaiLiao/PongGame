@@ -20,7 +20,7 @@ class Ball(Turtle):
         self.goto(new_position)
 
     def collision(self, wall_dir):
-        if wall_dir == "up" or wall_dir == "down":
+        if wall_dir == "y":
             self.y_movement *= -1
-        elif wall_dir == "right" or wall_dir == "left":
+        elif wall_dir == "x":
             self.x_movement *= -1
